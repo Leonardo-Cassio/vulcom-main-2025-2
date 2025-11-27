@@ -21,6 +21,13 @@ app.use(cookieParser())
 
 // Rate limiter: limita a quantidade de requisições que cada usuário/IP
 // pode efetuar dentro de um determinado intervalo de tempo
+
+/*
+  Vulnerabilidade: API4:2023 - Consumo irrestrito de recursos. 
+  Esta vulnerabilidade foi evitada no código ao implementar um rate limiter
+  que restringe a quantidade de requisições por usuário em um intervalo de tempo.
+*/
+
 import { rateLimit } from 'express-rate-limit'
 
 const limiter = rateLimit({

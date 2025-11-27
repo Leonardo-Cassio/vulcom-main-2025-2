@@ -4,6 +4,15 @@ import { ZodError } from 'zod'
 
 const carroController = {}   
 
+/*
+  Vulnerabilidade: API8:2023 - Má configuração de segurança.
+  Esta vulnerabilidade foi evitada no código ao validar todos os dados de entrada
+  utilizando Zod, rejeitando dados mal formatados ou inválidos
+  com retorno de status 422 (Unprocessable Entity). Além disso, os IDs created_user_id 
+  e updated_user_id são definidos pelo servidor baseado no token
+  autenticado, evitando que o cliente defina esses valores aleatoriamente.
+*/
+
 carroController.create = async (req, res) => {
   try {
     const dadosRecebidos = req.body

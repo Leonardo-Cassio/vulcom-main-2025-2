@@ -10,6 +10,14 @@ import jwt from 'jsonwebtoken'
   acessadas sem a necessidade de apresentação do token.
   Cadastramos essas rotas no vetor bypassRoutes.
 */
+
+/*
+  Vulnerabilidade: API2:2023 - Falha de autenticação.
+  Esta vulnerabilidade foi evitada no código ao implementar um middleware de autenticação
+  que valida tokens JWT em todas as requisições, garantindo que apenas usuários autenticados 
+  possam acessar recursos protegidos.
+*/
+
 const bypassRoutes = [
   { url: '/users/login', method: 'POST' },
   // Caso o cadastro de novos usuários seja público
